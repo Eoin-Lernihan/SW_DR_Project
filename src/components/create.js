@@ -5,12 +5,14 @@ export class Create extends React.Component {
 
     constructor() {
         super();
-
+       
         this.onSubmit = this.onSubmit.bind(this);
-        this.onChangeTitle = this.onChangeTitle.bind(this);
-        this.onChangeYear = this.onChangeYear.bind(this);
-        this.onChangePoster = this.onChangePoster.bind(this);
-
+        this.onChangeName = this.onChangeName.bind(this);
+        this.onChangeDate = this.onChangeDate.bind(this);
+        this.onChangeTime = this.onChangeTime.bind(this);
+        this.onChangeNumbersOfPeople = this.onChangeNumbersOfPeople.bind(this);
+        this.onChangeContactNumber = this.onChangeContactNumber.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
         this.state = {
             Title: '',
             Year: '',
@@ -18,18 +20,18 @@ export class Create extends React.Component {
         }
     }
 
-    onChangeTitle(e) {
+    onChangeName(e) {
         this.setState({
             Title: e.target.value
         });
     }
 
-    onChangeYear(e) {
+    onChangeDate(e) {
         this.setState({
             Year: e.target.value
         });
     }
-    onChangePoster(e) {
+    onChangeTime(e) {
         this.setState({
             Poster: e.target.value
         })
@@ -62,21 +64,21 @@ export class Create extends React.Component {
                         <input type='text'
                             className='form-control'
                             value={this.state.Title}
-                            onChange={this.onChangeTitle}></input>
+                            onChange={this.onChangeName}></input>
                     </div>
                     <div className="form-group">
                         <label>Add Movie Year: </label>
                         <input type='text'
                             className='form-control'
                             value={this.state.Year}
-                            onChange={this.onChangeYear}></input>
+                            onChange={this.onChangeDate}></input>
                     </div>
                     <div className='form-group'>
                         <label>Movies Poster: </label>
                         <textarea type='text'
                             className='form-control'
                             value={this.state.Poster}
-                            onChange={this.onChangePoster}>
+                            onChange={this.onChangeTime}>
                         </textarea>
                     </div>
 
