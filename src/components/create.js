@@ -14,42 +14,63 @@ export class Create extends React.Component {
         this.onChangeContactNumber = this.onChangeContactNumber.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.state = {
-            Title: '',
-            Year: '',
-            Poster: ''
+            Name: '',
+            Date: null,
+            Time: null,
+            NumbersOfPeople: null,
+            ContactNumber: '',
+            Email: ''
         }
     }
 
     onChangeName(e) {
         this.setState({
-            Title: e.target.value
+            Name: e.target.value
         });
     }
 
     onChangeDate(e) {
         this.setState({
-            Year: e.target.value
+            Date: e.target.value
         });
     }
     onChangeTime(e) {
         this.setState({
-            Poster: e.target.value
+            Time: e.target.value
         })
     }
-
+    onChangeNumbersOfPeople(e) {
+        this.setState({
+            NumbersOfPeople: e.target.value
+        })
+    }
+    onChangeContactNumber(e) {
+        this.setState({
+            ContactNumber: e.target.value
+        })
+    }
+    onChangeEmail(e) {
+        this.setState({
+            Email: e.target.value
+        })
+    }
     onSubmit(e) {
         e.preventDefault();
-        alert("Movie: " + this.state.Title + " "
-            + this.state.Year + " " +
-            this.state.Poster);
+        alert("Booking: " + this.state.Name + " for "
+            + this.state.Date + " at " +
+            this.state.Time + " for " +
+            this.state.NumbersOfPeople + " has been booked");
 
-            const newMovie ={
-                Title:this.state.Title,
-                Year:this.state.Year,
-                Poster:this.state.Poster
+            const newBooking ={
+                Name:this.state.Name,
+                Date:this.state.Date,
+                Time:this.state.Time,
+                NumbersOfPeople:this.state.NumbersOfPeople,
+                ContactNumberte:this.state.ContactNumber,
+                Email:this.state.Email,
             };
 
-        axios.post('http://localhost:4000/api/movies', newMovie)
+        axios.post('http://localhost:4000/api/bookings', newBooking)
         .then(response => console.log(response.data))
         .catch(error => console.log(error));    
 
@@ -60,32 +81,51 @@ export class Create extends React.Component {
             <div className='App'>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Add Movie Title: </label>
+                        <label>Add your name for the booking : </label>
                         <input type='text'
                             className='form-control'
-                            value={this.state.Title}
+                            value={this.state.Name}
                             onChange={this.onChangeName}></input>
                     </div>
                     <div className="form-group">
-                        <label>Add Movie Year: </label>
-                        <input type='text'
+                        <label>Add Booking Date: </label>
+                        <input type='date'
                             className='form-control'
-                            value={this.state.Year}
+                            value={this.state.Date}
                             onChange={this.onChangeDate}></input>
                     </div>
                     <div className='form-group'>
-                        <label>Movies Poster: </label>
-                        <textarea type='text'
+                        <label>Bookings time: </label>
+                        <textarea type='time'
                             className='form-control'
-                            value={this.state.Poster}
+                            value={this.state.Time}
                             onChange={this.onChangeTime}>
                         </textarea>
                     </div>
-
-
+                    <div className="form-group">
+                        <label>How many is it for (1-6 people) : </label>
+                        <input type='number' min="1" max="6"
+                            className='form-control'
+                            value={this.state.NumbersOfPeople}
+                            onChange={this.onChangeNumbersOfPeople}></input>
+                    </div>
+                    <div className="form-group">
+                        <label>Add your phone number : </label>
+                        <input type='tel'
+                            className='form-control'
+                            value={this.state.ContactNumber}
+                            onChange={this.onChangeContactNumber}></input>
+                    </div>
+                    <div className="form-group">
+                        <label>Add your email : </label>
+                        <input type='email'
+                            className='form-control'
+                            value={this.state.Email}
+                            onChange={this.onChangeEmail}></input>
+                    </div>
                     <div className="form-group">
                         <input type='submit'
-                            value='Add Movie'
+                            value='Add Booking'
                             className='btn btn-primary'></input>
                     </div>
                 </form>
