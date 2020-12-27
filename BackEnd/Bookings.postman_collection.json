@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "8bbb7979-4d53-4e39-8575-192146ac30d7",
+		"name": "Bookings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getWithId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  Name: 'as',\r\n  Date: null,\r\n  Time: null,\r\n  NumbersOfPeople: null,\r\n  ContactNumber: '220112',\r\n  Email: 's@s'\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/bookings/5fe8df08e985c0d8913a42ff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"bookings",
+						"5fe8df08e985c0d8913a42ff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createBookings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  Name: 'as',\r\n  Date: null,\r\n  Time: null,\r\n  NumbersOfPeople: null,\r\n  ContactNumber: '220112',\r\n  Email: 's@s'\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBookings",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  Name: 'as',\r\n  Date: null,\r\n  Time: null,\r\n  NumbersOfPeople: null,\r\n  ContactNumber: '220112',\r\n  Email: 's@s'\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DelteBookings",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  Name: 'as',\r\n  Date: null,\r\n  Time: null,\r\n  NumbersOfPeople: null,\r\n  ContactNumber: '220112',\r\n  Email: 's@s'\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/bookings/5fe8ef2e61b3a84da8519724",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"bookings",
+						"5fe8ef2e61b3a84da8519724"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
