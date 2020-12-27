@@ -5,7 +5,9 @@ export class Create extends React.Component {
 
     constructor() {
         super();
-       
+
+
+
         this.onSubmit = this.onSubmit.bind(this);
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
@@ -61,18 +63,18 @@ export class Create extends React.Component {
             this.state.Time + " for " +
             this.state.NumbersOfPeople + " has been booked");
 
-            const newBooking ={
-                Name:this.state.Name,
-                Date:this.state.Date,
-                Time:this.state.Time,
-                NumbersOfPeople:this.state.NumbersOfPeople,
-                ContactNumberte:this.state.ContactNumber,
-                Email:this.state.Email,
-            };
+        const newBooking = {
+            Name: this.state.Name,
+            Date: this.state.Date,
+            Time: this.state.Time,
+            NumbersOfPeople: this.state.NumbersOfPeople,
+            ContactNumber: this.state.ContactNumber,
+            Email: this.state.Email,
+        };
 
         axios.post('http://localhost:4000/api/bookings', newBooking)
-        .then(response => console.log(response.data))
-        .catch(error => console.log(error));    
+            .then(response => console.log(response.data))
+            .catch(error => console.log(error));
 
     }
 
@@ -96,11 +98,14 @@ export class Create extends React.Component {
                     </div>
                     <div className='form-group'>
                         <label>Bookings time: </label>
-                        <textarea type='time'
-                            className='form-control'
-                            value={this.state.Time}
-                            onChange={this.onChangeTime}>
-                        </textarea>
+                        <select id="dropdown" value={this.state.time} onChange={this.onChangeTime}>
+                            <option value="N/A">N/A</option>
+                            <option value="17:00-18:00">17:00-18:00</option>
+                            <option value="2">18:00-19:00</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        
                     </div>
                     <div className="form-group">
                         <label>How many is it for (1-6 people) : </label>
