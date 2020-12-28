@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
-export class MovieItem extends React.Component {
+export class CurrentBookings extends React.Component {
 
     constructor() {
         super();
@@ -26,17 +26,8 @@ export class MovieItem extends React.Component {
         return (
             <div>
                 <Card>
-                    <Card.Header>{this.props.movie.Title}</Card.Header>
+                    <Card.Header>{this.props.reservations.Name}</Card.Header>
                     <Card.Body>
-                        <blockquote className="blockquote mb-0">
-                            <img src={this.props.movie.Poster} width="200" height="200"></img>
-                            <footer className="blockquote-footer">
-                                {this.props.movie.Year}
-                            </footer>
-                        </blockquote>
-                        <Button variant="danger" onClick={this.DeleteMovie}>Delete</Button>
-                        <Link to={'/edit/'+this.props.movie._id} 
-                        className="btn btn-primary">Edit</Link>
                     </Card.Body>
                    
                 </Card>
