@@ -3,17 +3,18 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';
 
 export class CurrentBookings extends React.Component {
 
     constructor() {
         super();
-        this.DeleteMovie = this.DeleteMovie.bind(this);
+        this.DeleteBookings = this.DeleteBookings.bind(this);
     }
 
-    DeleteMovie(e) {
+    DeleteBookings(e) {
         e.preventDefault();
-        axios.delete('http://localhost:4000/api/movies/'+this.props.movie._id)
+        axios.delete('http://localhost:4000/api/bookings/'+this.props.reservations._id)
         .then(()=>{
             this.props.ReloadData();
         })
@@ -23,15 +24,18 @@ export class CurrentBookings extends React.Component {
     }
 
     render() {
+        
         return (
+            
             <div>
-                <Card>
+                <Card style={{ width: '18rem' }}>
                     <Card.Header>{this.props.reservations.Name}</Card.Header>
                     <Card.Body>
                     </Card.Body>
-                   
                 </Card>
-            </div>
+                </div>
+               
         );
+       
     }
 }

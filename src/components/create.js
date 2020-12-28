@@ -80,7 +80,8 @@ export class Create extends React.Component {
 
     render() {
         return (
-            <div className='App'>
+            
+            <div className='App' style={{ width:'50%'} }>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Add your name for the booking : </label>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Reservations } from './reservations';
 import axios from 'axios';
-
+import { Carousel } from 'react-responsive-carousel';
 export class Read extends React.Component {
 
     constructor(){
@@ -35,10 +35,11 @@ export class Read extends React.Component {
 
     render() {
         return (
+            
             <div>
-                <h1>This is the read component.</h1>
                 <Reservations reservations={this.state.reservations} ReloadData={this.ReloadData}></Reservations>
             </div>
+           
         );
     }
 }
