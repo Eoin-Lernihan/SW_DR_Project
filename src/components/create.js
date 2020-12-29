@@ -102,9 +102,9 @@ export class Create extends React.Component {
                         <select id="dropdown" value={this.state.time} onChange={this.onChangeTime}>
                             <option value="N/A">N/A</option>
                             <option value="17:00-18:00">17:00-18:00</option>
-                            <option value="2">18:00-19:00</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
+                            <option value="18:00-19:00">18:00-19:00</option>
+                            <option value="19:00-20:00">19:00-20:00</option>
+                            <option value="20:00-21:00">20:00-21:00</option>
                         </select>
                         
                     </div>

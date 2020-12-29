@@ -20,7 +20,7 @@ class App extends Component {
         <div className="App">
 
           <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="#home">On The Dime Dining</Navbar.Brand>
+            <Navbar.Brand href="#home">Chow Down</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/">Home Page</Nav.Link>
               <Nav.Link href="/read">CurrentBookings times</Nav.Link>

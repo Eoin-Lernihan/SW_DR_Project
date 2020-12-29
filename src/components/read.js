@@ -7,14 +7,25 @@ export class Read extends React.Component {
     constructor(){
         super();
         this.ReloadData = this.ReloadData.bind(this);
+        this.onChagnedFutureOnly = this.onChagnedFutureOnly.bind(this);
     }
 
     state = {
+
+        futureOnly: 'true',
         reservations: []
     };
+    
 
+    
+    
+    
     ReloadData(){
-        axios.get('http://localhost:4000/api/bookings')
+        axios.get('http://localhost:4000/api/bookings',{
+            params: {
+              futureOnly: this.state.futureOnly
+            }
+          })
             .then((response) => {
                 this.setState({ reservations: response.data })
             })
@@ -24,7 +35,11 @@ export class Read extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/api/bookings')
+        axios.get('http://localhost:4000/api/bookings',{
+            params: {
+            futureOnly: this.state.futureOnly
+            }
+          })
             .then((response) => {
                 this.setState({ reservations: response.data })
             })
@@ -34,13 +49,24 @@ export class Read extends React.Component {
     }
 
     render() {
-        return (
-            
+        return (        
             <div>
+                <card style={{ width: '20rem', margin: 'auto' }}>  
+                   If you would like to see upcoming Reservations, please click on me \
+                    <input type="checkbox" onChange={this.onChagnedFutureOnly}></input>/                
+                </card>
                 <Reservations reservations={this.state.reservations} ReloadData={this.ReloadData}></Reservations>
             </div>
            
         );
     }
+    onChagnedFutureOnly(e) {
+        alert("Loading Bookings");
+        this.setState({
+            futureOnly: e.target.checked
+        });
+        this.ReloadData();
+    }
+
 }
 

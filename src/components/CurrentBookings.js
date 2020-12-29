@@ -27,12 +27,10 @@ export class CurrentBookings extends React.Component {
     render() {
 
         return (
-
             <div>
-
                 <Card style={{ width: '18rem', margin: 'auto' }}>
                     <Card.Header stlye={{ bg: 'dark' }}>{this.props.reservations.Name}</Card.Header>
-                    <Card.Body>
+                    <Card.Body>                 
                         {this.props.reservations.Date}
                         <p></p>
                         {this.props.reservations.Time}

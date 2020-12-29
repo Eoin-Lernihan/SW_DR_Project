@@ -42,9 +42,20 @@ app.get('/', (req, res) => {
 
 app.get('/api/bookings', (req, res) => {
     
-    bookingModel.find((err,data)=>{
-        res.json(data);
-    })
+    if(req.query.futureOnly !== undefined && req.query.futureOnly == "true"){
+        var cutoff = new Date();
+        cutoff.setDate(cutoff.getDate());
+        bookingModel.find({Date: {$gt: cutoff}}, (err,data)=>{
+            res.json(data);
+        })  
+    }
+
+    else{
+        bookingModel.find((err,data)=>{
+            res.json(data);
+        })  
+    }
+    
     
     
 })
