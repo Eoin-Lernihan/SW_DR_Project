@@ -7,14 +7,16 @@ export class Edit extends React.Component {
         super();
 
         this.onSubmit = this.onSubmit.bind(this);
-        this.onChangeTitle = this.onChangeTitle.bind(this);
-        this.onChangeYear = this.onChangeYear.bind(this);
-        this.onChangePoster = this.onChangePoster.bind(this);
-
+        this.onChangeDate = this.onChangeDate.bind(this);
+        this.onChangeTime = this.onChangeTime.bind(this);
+        this.onChangeNumbersOfPeople = this.onChangeNumbersOfPeople.bind(this);
+        this.onChangeContactNumber = this.onChangeContactNumber.bind(this);
         this.state = {
-            Title: '',
-            Year: '',
-            Poster: ''
+           
+            Date: null,
+            Time: null,
+            NumbersOfPeople: null,
+            ContactNumber: '',
         }
     }
 
@@ -24,9 +26,10 @@ export class Edit extends React.Component {
         axios.get('http://localhost:4000/api/movies/'+this.props.match.params.id)
         .then((response)=>{
             this.setState({
-                Title:response.data.Title,
-                Year:response.data.Year,
-                Poster:response.data.Poster,
+                Date:response.data.Date,
+                Time:response.data.Time,
+                NumbersOfPeople:response.data.NumbersOfPeople,
+                ContactNumber:response.data.ContactNumber,
                 _id:response.data._id
             })
         })
@@ -35,20 +38,26 @@ export class Edit extends React.Component {
         });
     }
 
-    onChangeTitle(e) {
+    onChangeDate(e) {
         this.setState({
-            Title: e.target.value
+            Date: e.target.value
         });
     }
 
-    onChangeYear(e) {
+    onChangeTime(e) {
         this.setState({
-            Year: e.target.value
+            Time: e.target.value
         });
     }
-    onChangePoster(e) {
+
+    onChangeNumbersOfPeople(e) {
         this.setState({
-            Poster: e.target.value
+            NumbersOfPeople: e.target.value
+        });
+    }
+    onChangeContactNumber(e) {
+        this.setState({
+            ContactNumber: e.target.value
         })
     }
 
@@ -58,16 +67,17 @@ export class Edit extends React.Component {
             + this.state.Year + " " +
             this.state.Poster);
 
-            const newMovie ={
-                Title:this.state.Title,
-                Year:this.state.Year,
-                Poster:this.state.Poster
+            const changedBookings ={
+                Date:this.state.Date,
+                Time:this.state.Time,
+                NumbersOfPeople:this.state.NumbersOfPeople,
+                ContactNumber:this.state.ContactNumber
             };
 
         // axios.post('http://localhost:4000/api/movies', newMovie)
         // .then(response => console.log(response.data))
         // .catch(error => console.log(error));    
-            axios.put('http://localhost:4000/api/movies/'+this.state._id, newMovie)
+            axios.put('http://localhost:4000/api/bookings/'+this.state._id, changedBookings)
             .then((xyz)=>{
                 console.log(xyz);
             })
@@ -78,36 +88,39 @@ export class Edit extends React.Component {
 
     render() {
         return (
-            <div className='App'>
+            <div className='App' style={{ width:'50%', margin: 'auto'}}>
                 <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Add Movie Title: </label>
-                        <input type='text'
+                <div className="form-group">
+                        <label>Add Booking Date: </label>
+                        <input type='date'
                             className='form-control'
-                            value={this.state.Title}
-                            onChange={this.onChangeTitle}></input>
-                    </div>
-                    <div className="form-group">
-                        <label>Add Movie Year: </label>
-                        <input type='text'
-                            className='form-control'
-                            value={this.state.Year}
-                            onChange={this.onChangeYear}></input>
+                            value={this.state.Date}
+                            onChange={this.onChangeDate}></input>
                     </div>
                     <div className='form-group'>
-                        <label>Movies Poster: </label>
-                        <textarea type='text'
-                            className='form-control'
-                            value={this.state.Poster}
-                            onChange={this.onChangePoster}>
-                        </textarea>
+                        <label>Bookings time: </label>
+                        <select id="dropdown" value={this.state.time} onChange={this.onChangeTime}>
+                            <option value="N/A">N/A</option>
+                            <option value="17:00-18:00">17:00-18:00</option>
+                            <option value="2">18:00-19:00</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        
                     </div>
-
-
                     <div className="form-group">
-                        <input type='submit'
-                            value='Edit Movie'
-                            className='btn btn-primary'></input>
+                        <label>How many is it for (1-6 people) : </label>
+                        <input type='number' min="1" max="6"
+                            className='form-control'
+                            value={this.state.NumbersOfPeople}
+                            onChange={this.onChangeNumbersOfPeople}></input>
+                    </div>
+                    <div className="form-group">
+                        <label>Add your phone number : </label>
+                        <input type='tel'
+                            className='form-control'
+                            value={this.state.ContactNumber}
+                            onChange={this.onChangeContactNumber}></input>
                     </div>
                 </form>
             </div>

@@ -6,7 +6,7 @@ export class Content extends React.Component {
         return (
             <div>
                 <h1>On The Dime Dining</h1>
-                <h2>It is {new Date().toLocaleTimeString()}.</h2>
+                <img src="homePicture.jpg" alt="Cartoon Image"></img>
             </div>
         );
     }
