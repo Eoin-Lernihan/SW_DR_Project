@@ -20,10 +20,10 @@ class App extends Component {
         <div className="App">
 
           <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="#home">Chow Down</Navbar.Brand>
+            <Navbar.Brand href="#home">Chow Down Admin Page</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/">Home Page</Nav.Link>
-              <Nav.Link href="/read">CurrentBookings times</Nav.Link>
+              <Nav.Link href="/read">Current and Past Bookings times</Nav.Link>
               <Nav.Link href="/create">Create your Booking</Nav.Link>
             </Nav>
           </Navbar>

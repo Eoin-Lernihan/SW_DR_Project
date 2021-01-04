@@ -62,7 +62,7 @@ app.get('/api/bookings', (req, res) => {
 
 app.get('/api/bookings/:id',(req, res)=>{
 
-    console.log(req.params.id);
+    console.log("get " + req.params.id);
 
     bookingModel.findById(req.params.id, (err,data)=>{
         res.json(data);

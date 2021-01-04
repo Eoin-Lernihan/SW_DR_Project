@@ -12,7 +12,7 @@ export class Edit extends React.Component {
         this.onChangeNumbersOfPeople = this.onChangeNumbersOfPeople.bind(this);
         this.onChangeContactNumber = this.onChangeContactNumber.bind(this);
         this.state = {
-           
+           id: null,
             Date: null,
             Time: null,
             NumbersOfPeople: null,
@@ -23,7 +23,7 @@ export class Edit extends React.Component {
     componentDidMount(){
         console.log("load "+this.props.match.params.id);
 
-        axios.get('http://localhost:4000/api/movies/'+this.props.match.params.id)
+        axios.get('http://localhost:4000/api/bookings/'+this.props.match.params.id)
         .then((response)=>{
             this.setState({
                 Date:response.data.Date,
@@ -63,9 +63,7 @@ export class Edit extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        alert("Movie: " + this.state.Title + " "
-            + this.state.Year + " " +
-            this.state.Poster);
+        alert("The Booking has been updated");
 
             const changedBookings ={
                 Date:this.state.Date,
@@ -100,13 +98,11 @@ export class Edit extends React.Component {
                     <div className='form-group'>
                         <label>Bookings time: </label>
                         <select id="dropdown" value={this.state.time} onChange={this.onChangeTime}>
-                            <option value="N/A">N/A</option>
                             <option value="17:00-18:00">17:00-18:00</option>
                             <option value="18:00-19:00">18:00-19:00</option>
                             <option value="19:00-20:00">19:00-20:00</option>
                             <option value="20:00-21:00">20:00-21:00</option>
-                        </select>
-                        
+                        </select>                       
                     </div>
                     <div className="form-group">
                         <label>How many is it for (1-6 people) : </label>
@@ -121,6 +117,11 @@ export class Edit extends React.Component {
                             className='form-control'
                             value={this.state.ContactNumber}
                             onChange={this.onChangeContactNumber}></input>
+                    </div>
+                    <div className="form-group">
+                        <input type='submit'
+                            value='Add Booking'
+                            className='btn btn-primary'></input>
                     </div>
                 </form>
             </div>
