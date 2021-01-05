@@ -13,3 +13,10 @@ if(req.query.futureOnly !== undefined && req.query.futureOnly == "true"){
         })  
     }
 ```
+
+
+```
+
+```
+
+use postman collection to test sever.js without having to write web code
