@@ -25,13 +25,14 @@ export class CurrentBookings extends React.Component {
     }
 
     render() {
-
+var cts = this.props.reservations.Date,
+      cdate = (new Date(cts)).toLocaleDateString ();
         return (
             <div>
                 <Card style={{ width: '18rem', margin: 'auto' }}>
                     <Card.Header stlye={{ bg: 'dark' }}>{this.props.reservations.Name}</Card.Header>
                     <Card.Body>                 
-                        {this.props.reservations.Date}
+                        {cdate}
                         <p></p>
                         {this.props.reservations.Time}
                         <p></p>
