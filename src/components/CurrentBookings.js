@@ -38,6 +38,8 @@ var cts = this.props.reservations.Date,
                         <p></p>
                         {this.props.reservations.NumbersOfPeople}
                         <p></p>
+                        {this.props.reservations.Email}
+                        <p></p>
                         <Button variant="danger" onClick={this.DeleteBookings}>Delete</Button>
                         <Link to={'/edit/' + this.props.reservations._id} className="btn btn-primary">Edit</Link>
                     </Card.Body>

@@ -82,9 +82,10 @@ export class Create extends React.Component {
         return (
             
             <div className='App' style={{ width:'50%', margin: 'auto'} }>
+                <h4>Please fill out this form the make the booking</h4>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Add your name for the booking : </label>
+                        <label>Add the customer name for the booking : </label>
                         <input type='text'
                             className='form-control'
                             value={this.state.Name}
@@ -109,21 +110,21 @@ export class Create extends React.Component {
                         
                     </div>
                     <div className="form-group">
-                        <label>How many is it for (1-6 people) : </label>
+                        <label>How many will it be for (1-6 people) : </label>
                         <input type='number' min="1" max="6"
                             className='form-control'
                             value={this.state.NumbersOfPeople}
                             onChange={this.onChangeNumbersOfPeople}></input>
                     </div>
                     <div className="form-group">
-                        <label>Add your phone number : </label>
+                        <label>Add customer phone number : </label>
                         <input type='tel'
                             className='form-control'
                             value={this.state.ContactNumber}
                             onChange={this.onChangeContactNumber}></input>
                     </div>
                     <div className="form-group">
-                        <label>Add your email : </label>
+                        <label>Add customer email : </label>
                         <input type='email'
                             className='form-control'
                             value={this.state.Email}

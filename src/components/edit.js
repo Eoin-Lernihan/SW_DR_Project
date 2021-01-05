@@ -123,6 +123,7 @@ export class Edit extends React.Component {
                             value='Add Booking'
                             className='btn btn-primary'></input>
                     </div>
+              
                 </form>
             </div>
         );

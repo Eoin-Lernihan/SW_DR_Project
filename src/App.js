@@ -24,7 +24,7 @@ class App extends Component {
             <Nav className="mr-auto">
               <Nav.Link href="/">Home Page</Nav.Link>
               <Nav.Link href="/read">Current and Past Bookings times</Nav.Link>
-              <Nav.Link href="/create">Create your Booking</Nav.Link>
+              <Nav.Link href="/create">Create a Booking</Nav.Link>
             </Nav>
           </Navbar>
 

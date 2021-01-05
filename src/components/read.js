@@ -52,8 +52,8 @@ export class Read extends React.Component {
         return (        
             <div>
                 <card style={{ width: '20rem', margin: 'auto' }}>  
-                   If you would like to see upcoming Reservations, please click on me \
-                    <input type="checkbox" onChange={this.onChagnedFutureOnly}></input>/                
+               <h4>    If you would like to see previous Reservations, please click on me \
+                    <input type="checkbox" onChange={this.onChagnedFutureOnly}></input>/</h4>       
                 </card>
                 <Reservations reservations={this.state.reservations} ReloadData={this.ReloadData}></Reservations>
             </div>
