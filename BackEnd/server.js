@@ -1,3 +1,4 @@
+//This page is deadicated to the api server witch is the only page that talk to mongodb
 const express = require('express')
 const app = express()
 const port = 4000
@@ -24,6 +25,7 @@ app.use(bodyParser.json())
 //const strConnection = 'mongodb+srv://admin:admin@cluster0.hrgmz.mongodb.net/Myfilm?retryWrites=true&w=majority';
 mongoose.connect(strConnection, {useNewUrlParser: true});
 
+//This is how the data is stored in mongodb, bookingSchema is very important
 const Schema = mongoose.Schema;
 const bookingSchema = new Schema({
     Name:String,
@@ -33,15 +35,15 @@ const bookingSchema = new Schema({
     ContactNumber:String,
     Email:String
 })
-
 const bookingModel = mongoose.model('booking', bookingSchema);
+
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
 app.get('/api/bookings', (req, res) => {
-    
+    //Check if the query parm is future Only
     if(req.query.futureOnly !== undefined && req.query.futureOnly == "true"){
         var cutoff = new Date();
         cutoff.setDate(cutoff.getDate());
@@ -49,6 +51,7 @@ app.get('/api/bookings', (req, res) => {
             res.json(data);
         })  
     }
+     //Check if the query parm is today Only
     else if(req.query.todayOnly !== undefined && req.query.todayOnly == "true"){
         var startDate = new Date();
         startDate.setHours(0,0,0,0);
@@ -91,7 +94,6 @@ app.put('/api/bookings/:id',(req,res)=>{
 
 app.delete('/api/bookings/:id', (req, res)=>{
     console.log(req.params.id);
-
     bookingModel.findByIdAndDelete({_id:req.params.id},
          (err, data)=>{
         res.send(data);
@@ -101,7 +103,6 @@ app.delete('/api/bookings/:id', (req, res)=>{
 
 app.post('/api/bookings', (req, res) => {
     console.log(req.body);
-
     bookingModel.create({
         Name:req.body.Name,
         Date:req.body.Date,

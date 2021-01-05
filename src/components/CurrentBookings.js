@@ -1,3 +1,4 @@
+//Helps make the Current Bookings page and Home page
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';

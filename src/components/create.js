@@ -1,3 +1,4 @@
+//Helps make the create page
 import React from 'react';
 import axios from 'axios';
 
@@ -5,9 +6,6 @@ export class Create extends React.Component {
 
     constructor() {
         super();
-
-
-
         this.onSubmit = this.onSubmit.bind(this);
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);

@@ -1,5 +1,5 @@
+//Helps make the Current Bookings page and Home page
 import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
 import {CurrentBookings} from './CurrentBookings';
 
 export class Reservations extends React.Component{

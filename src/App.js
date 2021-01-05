@@ -1,8 +1,6 @@
+//nav bar
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Header } from './components/header';
-import { Footer } from './components/footer';
 import { Content } from './components/content';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
@@ -20,7 +18,7 @@ class App extends Component {
         <div className="App">
 
           <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="#home">Chow Down Admin Page</Navbar.Brand>
+            <Navbar.Brand href="/">Chow Down Admin Page</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/">Home Page</Nav.Link>
               <Nav.Link href="/read">Current and Past Bookings times</Nav.Link>
