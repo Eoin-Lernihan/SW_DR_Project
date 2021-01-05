@@ -14,7 +14,7 @@ export class Content extends React.Component {
     loadData(){
         axios.get('http://localhost:4000/api/bookings',{
             params: {
-                futureOnly: 'true'
+                todayOnly: 'true'
             }
           })
             .then((response) => {
@@ -27,7 +27,7 @@ export class Content extends React.Component {
     componentDidMount() {
         axios.get('http://localhost:4000/api/bookings',{
             params: {
-            futureOnly: 'true'
+            todayOnly: 'true'
             }
           })
             .then((response) => {

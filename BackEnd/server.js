@@ -49,7 +49,17 @@ app.get('/api/bookings', (req, res) => {
             res.json(data);
         })  
     }
-
+    else if(req.query.todayOnly !== undefined && req.query.todayOnly == "true"){
+        var startDate = new Date();
+        startDate.setHours(0,0,0,0);
+        var endDate = new Date();
+        endDate.setHours(23,59,59,999);
+      console.log(startDate)
+      console.log(endDate)
+        bookingModel.find({Date: {$gte: startDate, $lte: endDate}}, (err,data)=>{
+            res.json(data);
+        })  
+    }
     else{
         bookingModel.find((err,data)=>{
             res.json(data);
